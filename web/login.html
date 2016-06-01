@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="project">
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Site for those who cares! Become blood donor now, save life!">
+        <meta name="author" content="vrom911">
+        <meta name="keywords" content="blood donor, help, donation, donor" >
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
+        <title>Pelican</title>
+
+        <!-- Bootstrap CSS -->
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+        <!--<link href="css/bootstrap.min.css" rel="stylesheet">-->
+        <!-- Main CSS -->
+        <!--<link href="css/main.css" rel="stylesheet">-->
+        <link href="css/login.css" rel="stylesheet">
+        <link href="css/input.css" rel="stylesheet">
+        <!-- AngularJS-->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+        <script type="text/javascript" src="app/data.js"></script>
+        <script type="text/javascript" src="app/ang-index.js"></script>
+
+        <!-- Custom Fonts -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+        <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+
+
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+        <section class="content-fluid login text-center">
+            <div class="row">
+                <nav class="nav  col-md-12 menu">
+                    <ul class=" nav nav-tabs  center-pills menu_list">
+                        <li class="white menu_item"><a href="#signup" class="menu_link" data-toggle="tab">Sign Up</a></li>
+                        <li class="red menu_item menu_item-current active"><a href="#login" class="menu_link" data-toggle="tab">Log In</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="row login-content tab-content">
+                <section class="col-md-6 left tab-content" >
+                    <div class="col-md-8 col-lg-8 col-md-offset-1 col-lg-offset-1 tab-pane fade in active" id="signup">
+                        <img src="img/flat-avatar.png" class="user-avatar" alt="Temp Avatar"/>
+                        <h1>Sign Up</h1>
+                        <form role="form" action="signUpServlet" ng-submit="submit()">
+
+                            <div class="input form-group">
+                                <input class="input_field " type="text" id="username" />
+                                <label class="input_label" for="username">
+                                    <span class="input_label-content">Username</span>
+                                </label>
+                                <svg class="graphic" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
+                                </svg>
+                            </div>
+
+                            <div class="input form-group">
+                                <input type="text" class="input_field" name="email" id="email">
+                                <label class="input_label" for="email">
+                                    <span class="input_label-content">E-mail</span>
+                                </label>
+                                <svg class="graphic" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
+                                </svg>
+                            </div>
+
+                            <div class="input form-group">
+                                <input type="password" class="input_field" name="pwd" id="pwd">
+                                <label class="input_label" for="pwd">
+                                    <span class="input_label-content">Password</span>
+                                </label>
+                                <svg class="graphic" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
+                                </svg>
+                            </div>
+                            <div class="input form-group">
+                                <input type="password" class="input_field" name="pwd" id="pwd">
+                                <label class="input_label" for="pwd">
+                                    <span class="input_label-content">Reenter Password</span>
+                                </label>
+                                <svg class="graphic" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
+                                </svg>
+                            </div>
+
+
+                            <button type="submit" class="btn btn-rounded">Sign Up</button>
+
+                        </form>
+
+                    </div>
+                    <div class="tab-pane fade" id="login">Log In Now</div>
+                </section>
+                <section class="col-md-6 right maincolored tab-content" id="login-panel">
+                    <div class="col-md-8 col-lg-8 col-md-offset-1 col-lg-offset-1 tab-pane fade in active" id="login">
+                        <img src="img/flat-avatar.png" class="user-avatar" alt="Temp Avatar" />
+                        <h1>Log in</h1>
+                        <form role="form" action="loginServlet" ng-submit="submit()">
+
+                            <div class="input form-group">
+                                <input class="input_field " type="text" id="username" />
+                                <label class="input_label" for="username">
+                                    <span class="input_label-content">Username</span>
+                                </label>
+                                <svg class="graphic" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
+                                </svg>
+                            </div>
+
+                            <div class="input form-group">
+                                <input type="text" class="input_field" name="email" id="email">
+                                <label class="input_label" for="email">
+                                    <span class="input_label-content">E-mail</span>
+                                </label>
+                                <svg class="graphic" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
+                                </svg>
+                            </div>
+
+                            <div class="input form-group">
+                                <input type="password" class="input_field" name="pwd" id="pwd">
+                                <label class="input_label" for="pwd">
+                                    <span class="input_label-content">Password</span>
+                                </label>
+                                <svg class="graphic" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
+                                </svg>
+                            </div>
+
+                            <button type="submit" class="btn btn-outline btn-lg btn-rounded">Login</button>
+
+                        </form>
+
+                    </div>
+                    <div class="tab-pane fade" id="signup">
+                        <h2>Sign Up now</h2>
+                    </div>
+                </section>
+
+            </div>
+
+        </section>
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+        <script src="js/menu-tab.js"></script>
+        <script src="js/input.js"></script>
+    </body>
+

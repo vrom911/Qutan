@@ -1,0 +1,86 @@
+
+@mixin upbald(){
+    text-transform: uppercase;
+    font-weight: 700;
+}
+@mixin trans($t...) {
+    -webkit-transition: $t;
+    -moz-transition: $t;
+    -ms-transition: $t;
+    transition: $t;
+}
+@mixin animate($val) {
+    -webkit-animation: $val;
+    -moz-animation: $val;
+    -o-animation: $val;
+    animation: $val;
+}
+@mixin transform($val) {
+    transform: $val;
+    -webkit-transform: $val;
+    -ms-transform: $val;
+    -moz-transform:$val;
+    -o-transform: $val;
+}
+@mixin transform-origin($val) {
+    transform-origin: $val;
+    -webkit-transform-origin: $val;
+    -ms-transform-origin: $val;
+    -moz-transform-origin:$val;
+    -o-transform-origin: $val;
+}
+@mixin transformRotate($rot) {
+    transform:rotateZ($rot);
+    -webkit-transform:rotateZ($rot);
+    -ms-transform:rotateZ($rot);
+    -moz-transform:rotateZ($rot);
+    -o-transform:rotateZ($rot);
+}
+@mixin trans-timing($val) {
+     -webkit-transition-timing-function: $val;
+     -o-transition-timing-function: $val;
+     -moz-transition-timing-function: $val;
+     transition-timing-function: $val;
+}
+@mixin none-select() {
+     -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+@mixin bk-txt($bk, $txt){
+    background: $bk;
+    color: $txt;
+}
+@mixin timelinemedia($x, $y, $padding, $padding2) {
+
+    min-height: $x;
+    .timeline-panel {
+        padding: $padding;
+    }
+    .timeline-image {
+        width: $x;
+        height: $x;
+        margin-left: $y;
+    }
+    &.timeline-inverted > .timeline-panel {
+        padding: $padding2;
+    }
+}
+@mixin keyframes( $animationName )
+{
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+

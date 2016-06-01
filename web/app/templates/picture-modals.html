@@ -1,0 +1,63 @@
+<div>
+        <section id="picture-modals" class=" text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>Pictures Menu</h2>
+                        <hr class="star-primary">
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col-sm-4 picture-item" ng-repeat="pic in picmod.data">
+                        <a ng-href="#{{pic.id}}" class="picture-link" data-toggle="modal">
+                            <div class="caption">
+                                <div class="caption-content">
+                                    <i class="fa fa-search-plus fa-3x"></i>
+                                </div>
+                            </div>
+                            <img ng-src="{{pic.img}}" class="img-responsive" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>        
+        </section>
+        <div ng-repeat="pic in picmod.data">
+            <div class="picture-modal modal fade" id="{{pic.id}}" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-content">
+                        <div class="close-modal" data-dismiss="modal">
+                            <div class="lr">
+                                <div class="rl">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-8 col-lg-offset-2">
+                                    <div class="modal-body">
+                                        <h2>{{pic.title}}</h2>
+                                        <hr class="star-primary">
+                                        <img ng-src="{{pic.img}}" class="img-responsive img-centered" alt="">
+                                        <p>{{pic.text}}</p>
+                                        <ul class="list-inline item-details">
+                                            <li>Client:
+                                                <strong><a href="#">QutAN</a>
+                                                </strong>
+                                            </li>
+                                            <li>Date:
+                                                <strong><a href="#">April 2016</a>
+                                                </strong>
+                                            </li>
+                                            <li>Service:
+                                                <strong><a href="#">Web Development</a>
+                                                </strong>
+                                            </li>
+                                        </ul>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>

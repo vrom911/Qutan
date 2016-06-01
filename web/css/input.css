@@ -1,0 +1,135 @@
+/*input effect nao*/
+.input {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin: 1em;
+  /*max-width: 350px;*/
+  width: calc(100% - 2em);
+  vertical-align: top;
+  overflow: hidden;
+  padding-top: 1em; }
+
+.input_field {
+  position: relative;
+  display: block;
+  float: right;
+  border: none;
+  border-radius: 0;
+  font-weight: 500;
+  -webkit-appearance: none;
+  /* for box shadows to show on iOS */
+  padding: 0.5em 0em 0.25em;
+  width: 100%;
+  background: transparent;
+  font-size: 1.3em; }
+  .input_field:focus {
+    outline: none; }
+
+.input_label {
+  /*color: rgba(256,256,256,0.5);*/
+  font-weight: bold;
+  /*font-size: 70.25%;*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  top: 0.95em;
+  font-size: 0.85em;
+  left: 0;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0em;
+  pointer-events: none;
+  transform-origin: 0 0;
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  -moz-transform-origin: 0 0;
+  -o-transform-origin: 0 0;
+  -webkit-transition: transform 0.2s 0.15s, color 1s;
+  -moz-transition: transform 0.2s 0.15s, color 1s;
+  -ms-transition: transform 0.2s 0.15s, color 1s;
+  transition: transform 0.2s 0.15s, color 1s;
+  /*	-webkit-transition: -webkit-transform 0.2s 0.15s, color 1s;
+      transition: transform 0.2s 0.15s, color 1s;*/
+  -webkit-transition-timing-function: ease-out;
+  -o-transition-timing-function: ease-out;
+  -moz-transition-timing-function: ease-out;
+  transition-timing-function: ease-out; }
+
+.input_label-content {
+  position: relative;
+  display: block;
+  width: 100%; }
+
+.graphic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+  -webkit-transition: -webkit-transform 0.7s, stroke 0.7s;
+  transition: transform 0.7s, stroke 0.7s;
+  -webkit-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+  -o-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+  -moz-transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1);
+  transition-timing-function: cubic-bezier(0, 0.25, 0.5, 1); }
+
+.right .input .graphic {
+  stroke: rgba(255, 255, 255, 0.5); }
+
+.left .input .graphic, .white .input .graphic {
+  stroke: rgba(219, 86, 58, 0.5); }
+
+.input_field:focus + .input_label,
+.input-filled .input_label {
+  /*    @if background == $brand-main {
+          color: $clr;
+      } @else {
+          color: $brand-main;
+      }*/
+  transform: translate3d(0, -1.25em, 0) scale3d(1.25, 1.25, 1);
+  -webkit-transform: translate3d(0, -1.25em, 0) scale3d(1.25, 1.25, 1);
+  -ms-transform: translate3d(0, -1.25em, 0) scale3d(1.25, 1.25, 1);
+  -moz-transform: translate3d(0, -1.25em, 0) scale3d(1.25, 1.25, 1);
+  -o-transform: translate3d(0, -1.25em, 0) scale3d(1.25, 1.25, 1); }
+
+.input_field:focus ~ .graphic,
+.input-filled .graphic {
+  /*    @if background == $brand-main {
+          stroke: $clr;
+      } @else {
+          stroke: $brand-main;
+      }*/
+  transform: translate3d(-66.6%, 0, 0);
+  -webkit-transform: translate3d(-66.6%, 0, 0);
+  -ms-transform: translate3d(-66.6%, 0, 0);
+  -moz-transform: translate3d(-66.6%, 0, 0);
+  -o-transform: translate3d(-66.6%, 0, 0); }
+
+/*this is hack from autocomplete from browser( ugly yellow background..)*/
+.input-left input:-webkit-autofill,
+.input-white input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px white inset;
+  /* Change the color to your own background color */
+  -webkit-text-fill-color: #DB563A; }
+.input-left input:-webkit-autofill:focus,
+.input-white input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px white inset;
+  -webkit-text-fill-color: #DB563A; }
+
+.input-right input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 50px #DB563A inset;
+  /* Change the color to your own background color */
+  -webkit-text-fill-color: white; }
+.input-right input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px #DB563A inset;
+  -webkit-text-fill-color: white; }
+
+/*# sourceMappingURL=input.css.map */

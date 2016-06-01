@@ -1,0 +1,73 @@
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Contact Me</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row white">
+            <div class="col-lg-12">
+                <form name="sendMessage" action="contact" id="contactForm" ng-submit="form.submitForm(sendMessage.$valid)" method="POST" novalidate>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="input form-group input-white" ng-class="{'has-error' : sendMessage.fullname.$invalid && !sendMessage.fullname.$pristine }">
+                                <input class="input_field" type="text" name="fullname" value="${fullname}" id="fullname" data-validation-required-message="Please enter your name."ng-model="fullname" required/>
+                                <label for="fullname" class=" input_label">
+                                    <span class="input_label-content">Full name</span>
+                                </label>
+                                <svg class="graphic" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
+                                </svg>
+                            </div>
+
+                            <div class="input form-group " ng-class="{'has-error' : sendMessage.fullname.$invalid && !sendMessage.fullname.$pristine }">
+                                <input class=" input_field " type="email" name="email" value="${email}" id="email" ng-model="email" required/>
+                                <label for="email" class=" input_label">
+                                    <span class="input_label-content">E-mail</span>
+                                </label>
+
+                                <svg class="graphic" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
+                                </svg>
+                            </div>
+
+                            <div class="input form-group " >
+                                <input class=" input_field " type="tel" id="phone" name="phone" value="${phone}" ng-model="phone"/>
+                                <label for="phone" class=" input_label">
+                                    <span class="input_label-content">Phone number</span>
+                                </label>
+
+                                <svg class="graphic" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
+                                </svg>
+                                <!--<p class="help-block text-danger"></p>-->
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input form-group " >
+                                <textarea  class="input_field"  id="text" name="text" value="${text}" data-validation-required-message="Please enter a message." ng-model="message" required></textarea>
+
+                                <label for="text" class=" input_label">
+                                    <span class="input_label-content">Message</span>
+                                </label>
+
+                                <svg class="graphic" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
+                                <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"/>
+                                </svg>
+                            </div>
+
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-12 text-center section-4">
+                            <div id="success"></div>
+                            <button type="submit" class="btn btn-success btn-lg btn-xl button button-drop" ng-disabled="sentMessage.$invalid"><span class="text">Send Message</span></button>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="js/input.js"></script>
