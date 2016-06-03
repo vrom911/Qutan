@@ -1,7 +1,6 @@
 package az.qutan.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
 /**
  *
@@ -12,24 +11,24 @@ import java.math.BigDecimal;
  * Class: Base
  */
 public class Base implements Serializable {
-    protected BigDecimal id;
+    protected int id;
     protected int status;
 
     public Base() {
-        this.id = BigDecimal.ZERO;
+        this.id = 0;
         this.status = 0;
     }
 
-    public Base(BigDecimal id, int status) {
+    public Base(int id, int status) {
         this.id = id;
         this.status = status;
     }
 
-    public BigDecimal getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(int id) {
         this.id = id;
     }
 

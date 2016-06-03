@@ -1,32 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package az.qutan.web;
 
 import az.qutan.data.ConnectionPool;
 import az.qutan.data.DBUtil;
 import az.qutan.model.User;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import org.apache.tomcat.util.http.FastHttpDateFormat;
-
+import javax.servlet.http.*;
 /**
  *
  * @author vrom911
@@ -71,12 +54,14 @@ public class LoginServlet extends HttpServlet {
 
                 rs = pstmt.executeQuery();
                 if (rs.next()) {
-                    BigDecimal userId = rs.getBigDecimal("id");
+                    int userId = rs.getInt("id");
                     System.out.println("login success user id = " + userId);
                     PreparedStatement updateLastVisit = con.prepareStatement("UPDATE user SET last_seen=curdate() where username=?");
                     updateLastVisit.setString(1, username);
                     updateLastVisit.executeUpdate();
                     User user = new User(userId, username, pwd, rs.getString("email"), rs.getString("phone"),rs.getDate("last_seen"), 0);
+                    HttpSession session = request.getSession();
+                    session.setAttribute("user", user);
 //                    Cookie loginCookie = new Cookie("user",user.toString());
                     nextUrl = "/account.jsp";
 //                    session.setAttribute("name",);
@@ -93,24 +78,14 @@ public class LoginServlet extends HttpServlet {
                 // Эта часть позволяет нам закрыть все открытые ресуры
                 // В противном случае возмжожны проблемы. Поэтому будьте
                 // всегда аккуратны при работе с коннектами
-
                     DBUtil.closeResultSet(rs);
                     DBUtil.closePreparedStatement(pstmt);
                     pool.freeConnection(con);
                     System.out.println("Database connection terminated");
-
-
 //                HttpSession session = request.getSession();
 //                session.setAttribute("username", username);
                 getServletContext().getRequestDispatcher(nextUrl).forward(request, response);
             }
-        }
-
-
-        if (valid) {
-
-        } else {
-
         }
     }
 

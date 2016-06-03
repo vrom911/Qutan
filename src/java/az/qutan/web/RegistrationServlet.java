@@ -1,12 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package az.qutan.web;
 
+import az.qutan.data.PersonDB;
+import az.qutan.data.UserDB;
+import static az.qutan.data.UserDB.insertUser;
+import az.qutan.model.City;
+import az.qutan.model.Person;
+import az.qutan.model.User;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,37 +43,33 @@ public class RegistrationServlet extends HttpServlet {
          */
 
         //1.read registration data from form
-        String username = "";
-        String password = "";
-        String passwordConfirmation = "";
-        String name = "";
-        String surname = "";
-        String email = "";
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String passwordConfirmation = request.getParameter("passwordConfirmation");
+        String email = request.getParameter("email");
+        String phone = request.getParameter("phone");
+        String name = request.getParameter("name");
+        String surname = request.getParameter("surname");
+        String gender = request.getParameter("gender");
+        Date birthday = null;
+        int city = Integer.parseInt(request.getParameter("city"));
+        try {
+            DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            birthday = format.parse(request.getParameter("birthday"));
+        } catch (ParseException ex) {
+            Logger.getLogger(RegistrationServlet.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+//        here will be all proper validation..don't have time now..
+
+        User user = new User(-1, username, password, email, phone, new Date(), 0);
+        int userId = insertUser(user);
+        user.setId(userId);
+        Person person = new Person(-1, name, surname, gender,city, birthday, new Date(), user, 0, 0 );
+        int personId = PersonDB.insertPerson(person);
+
         boolean valid = true;
 
-        if (request.getParameter("username") != null) {
-            username = request.getParameter("username");
-        }
-
-        if (request.getParameter("password") != null) {
-            password = request.getParameter("password");
-        }
-
-        if (request.getParameter("passwordConfirmation") != null) {
-            passwordConfirmation = request.getParameter("passwordConfirmation");
-        }
-
-        if (request.getParameter("name") != null) {
-            name = request.getParameter("name");
-        }
-
-        if (request.getParameter("surname") != null) {
-            surname = request.getParameter("surname");
-        }
-
-        if (request.getParameter("email") != null) {
-            email = request.getParameter("father_name");
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

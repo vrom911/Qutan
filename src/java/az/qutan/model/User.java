@@ -23,7 +23,7 @@ public class User extends Base{
     public User() {
     }
 
-    public User(BigDecimal id, String username, String pwd, String email, String phone, Date lastVisitDate, int status) {
+    public User(int id, String username, String pwd, String email, String phone, Date lastVisitDate, int status) {
         super(id, status);
         this.username = username;
         this.pwd = pwd;

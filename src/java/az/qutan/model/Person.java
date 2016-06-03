@@ -1,12 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package az.qutan.model;
 
-import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -21,7 +14,7 @@ public class Person extends Base{
     private String firstname;
     private String surname;
     private String gender;
-    private City city;
+    private int city;
     private Date birthday;
     private Date creationDate;
     private User creator;
@@ -31,7 +24,7 @@ public class Person extends Base{
     public Person() {
     }
 
-    public Person(BigDecimal id, String firstname, String surname, String gender, City city, Date birthday, Date creationDate, User creator, int personStatus, int status) {
+    public Person(int id, String firstname, String surname, String gender, int city, Date birthday, Date creationDate, User creator, int personStatus, int status) {
         super(id, status);
         this.firstname = firstname;
         this.surname = surname;
@@ -67,11 +60,11 @@ public class Person extends Base{
         this.gender = gender;
     }
 
-    public City getCity() {
+    public int getCity() {
         return city;
     }
 
-    public void setCity(City city) {
+    public void setCity(int city) {
         this.city = city;
     }
 

@@ -15,7 +15,8 @@ import java.util.logging.Logger;
  */
 public class UserDB {
 
-    public static void insertUser(User user) {
+    public static int insertUser(User user) {
+        int id = -1;
         ConnectionPool pool = ConnectionPool.getInstance();
         Connection connection = pool.getConnection();
         PreparedStatement ps = null;
@@ -25,15 +26,20 @@ public class UserDB {
                 + "VALUES (?, ?, ?, ?, ?, ?)";
 
         try {
-            ps = connection.prepareStatement(query);
+            ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getPwd());
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getPhone());
             ps.setDate(5, (Date) user.getLastVisitDate());
-            ps.setBigDecimal(6, user.getId());
+            ps.setInt(6, user.getId());
 
             ps.executeUpdate();
+
+            rs = ps.getGeneratedKeys();
+            if (rs.next()){
+                id=rs.getInt(1);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(UserDB.class.getName()).log(Level.SEVERE, null, ex);
         } finally {
@@ -41,6 +47,7 @@ public class UserDB {
             DBUtil.closePreparedStatement(ps);
             pool.freeConnection(connection);
         }
+        return id;
     }
     public static void updateUser(User user) {
         ConnectionPool pool = ConnectionPool.getInstance();
@@ -79,7 +86,7 @@ public class UserDB {
         try {
             ps = connection.prepareStatement(query);
             ps.setInt(1, user.getStatus());
-            ps.setBigDecimal(6, user.getId());
+            ps.setInt(2, user.getId());
 
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -105,7 +112,7 @@ public class UserDB {
             User user = null;
             if (rs.next()) {
                 user = new User();
-                user.setId(rs.getBigDecimal("id"));
+                user.setId(rs.getInt("id"));
                 user.setUsername(rs.getString("username"));
                 user.setPwd(rs.getString("pwd"));
                 user.setEmail(rs.getString("email"));

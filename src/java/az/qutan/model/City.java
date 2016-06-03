@@ -1,7 +1,5 @@
 package az.qutan.model;
 
-import java.math.BigDecimal;
-
 /**
  * @version 1.0     May 26, 2016
  * @author Veronika Romashkina
@@ -20,7 +18,7 @@ public class City extends Base {
         this.name = "";
     }
 
-    public City(String name, Country country, BigDecimal id, int status) {
+    public City(int id, String name, Country country, int status) {
         super(id, status);
         this.name = name;
         this.country = country;

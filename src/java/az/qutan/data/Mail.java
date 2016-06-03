@@ -74,18 +74,18 @@ public class Mail {
           + "</table>";
         return body;
     }
-    public static String generateSubscriber(String user) {
+    public static String generateSubscriber() {
         String body = "<table style='text-align:center;'> "
                 + "<thead>"
                     +"<tr><th><h1 style='background-color:#DB563A;color:white;'>QUTAN</h1></th></tr> "
                 + "</thead> "
                 + "<tbody>"
-                    +"<tr><td><h2 style='color:#ab3327;'><i>Dear " + user.trim() + ",</i><h2>"
-                        + "<p style='color:#ab3327;'> Thank you for your email!<br/>"
-                        + "We have received your message and appreciate you contacting us. "
-                        + "Our team tries to respond as soon as possible, so one of Qutan-ers will get back to you within a few hours.</p>"
+                    +"<tr><td><h2 style='color:#ab3327;'><i>Dear Subscriber,</i><h2>"
+                        + "<p style='color:#ab3327;'>Thank you for subscribing to the Qutan newsletter!<br/>"
+                        + "We look forward to delivering weekly announcements, news and tips from Qutan. "
+                        + "If you ever wish to unsubscribe, simply use the “Unsubscribe” link included in each newsletter."
                     + "</td></tr>"
-                + "<tr><td style='text-align:left;color:#DB563A;'>Have a great day ahead,<br/>Qutan team<br/> <img alt='Qutan' src='https://photos-1.dropbox.com/t/2/AACZ_wucpSjGVRH7DDqzSJlRnt9kMK7l8Qu5LIX5TTNNnA/12/383795473/png/32x32/1/_/1/2/qutan_red.svg/EJOZ7oYDGN8DIAEoASgH/MgZT1nzKv0pEkKCvGk2WYZLiAvgqBEdWeh9Y6BVwV9U?size=1280x960&size_mode=3' width='80px' height=auto</td> </tr>"
+                + "<tr><td style='text-align:left;color:#DB563A;'>Have a great day ahead,<br/>Qutan team<br/> <img alt='Qutan' src='https://raw.githubusercontent.com/vrom911/Qutan/master/web/img/qutan_red.svg' width='80px' height=auto</td> </tr>"
                 + "</tbody>"
           + "</table>";
         return body;

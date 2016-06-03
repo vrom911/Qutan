@@ -1,12 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package az.qutan.web;
 
+import az.qutan.data.Mail;
+import static az.qutan.data.SubscriberDB.*;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SubscribeServlet extends HttpServlet {
 
     /**
+     * Subscribe to weekly newsletter from Qutan team. Need only email for data base(at this point)
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
      *
@@ -29,7 +29,22 @@ public class SubscribeServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        String to = request.getParameter("email");
+        if (to != null && !to.isEmpty()) {
+            if (insertSubscriber(to) == 1) {
+//                status 1 means - new user not in the db
+//                send him thanks for subscribing
+//                status -1 - user already subscribed and status active
+//                status 0 - this is not normal, some mistake
+                try {
+                Mail.sendMail(to, "Subscribe Successful", Mail.generateSubscriber(), true);
+            } catch (MessagingException ex) {
+                Logger.getLogger(SubscribeServlet.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            }
+
+        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

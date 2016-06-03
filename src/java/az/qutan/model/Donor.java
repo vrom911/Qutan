@@ -1,7 +1,5 @@
 package az.qutan.model;
 
-import java.math.BigDecimal;
-
 /**
  *
  * @version 1.0     May 26, 2016
@@ -23,7 +21,7 @@ public class Donor extends Base{
     public Donor() {
     }
 
-    public Donor(BigDecimal id, User user, int donorStatus, int weight, BloodGroup bloodGroup, int availability, String applicableState, int rating, int givenBlood, int status) {
+    public Donor(int id, User user, int donorStatus, int weight, BloodGroup bloodGroup, int availability, String applicableState, int rating, int givenBlood, int status) {
         super(id, status);
         this.user = user;
         this.donorStatus = donorStatus;

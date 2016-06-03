@@ -1,12 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package az.qutan.model;
-
-import java.math.BigDecimal;
 
 /**
  *
@@ -26,7 +18,7 @@ public class Message extends Base{
     public Message() {
     }
 
-    public Message(BigDecimal id, String fullname, String email, String phone, String text, int responseStatus, int status) {
+    public Message(int id, String fullname, String email, String phone, String text, int responseStatus, int status) {
         super(id, status);
         this.fullname = fullname;
         this.email = email;
